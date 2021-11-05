@@ -50,10 +50,13 @@ sudo docker-compose up --build -d
 #run all service
 sudo docker start nginx nginx-letsencrypt nginx-gen db pma egateway redis auth external storage user product transaction
 
-# cek all container
+# cehk all container
 sudo docker ps -a
 
-# enter container bash
+#check docker image
+sudo docker images
+
+# enter container with bash
 sudo docker exec -it db bin/bash
 
 #enter mysql
