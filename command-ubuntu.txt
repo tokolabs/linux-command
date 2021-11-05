@@ -1,0 +1,64 @@
+#update system
+sudo apt update -y
+sudo apt-get update
+
+#install git
+sudo apt install git -y
+git --version
+
+#setting up ssh account
+##source: https://gist.github.com/developius/c81f021eb5c5916013dc 
+ssh-keygen -t rsa -C "mohfahrulhafidh@gmail.com"
+##content add to https://github.com/settings/keys
+sudo cat ~/.ssh/id_rsa.pub 
+##testing login
+ssh -T git@github.com 
+
+#install docker
+sudo apt-get remove docker docker-engine docker.io
+sudo apt-get update
+sudo apt install docker.io -y
+sudo snap install docker
+## cannot update snap namespace: cannot create symlink in "/etc/docker": existing file in the way
+sudo rm -rf /etc/docker
+sudo snap refresh
+##check work
+docker --version
+docker-compose version
+
+#install docker-compose (not used) -> snap install both docker and docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+##latest version
+sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose version
+
+#install node
+sudo apt install nodejs -y
+node -v
+sudo apt install npm -y
+npm -v
+
+#clone repo
+git clone __nama_repo
+#make network for docker service
+sudo docker network create nginx-proxy
+
+# build docker-compose
+sudo docker-compose up --build -d
+
+#run all service
+sudo docker start nginx nginx-letsencrypt nginx-gen db pma egateway redis auth external storage user product transaction
+
+# cek all container
+sudo docker ps -a
+
+# enter container bash
+sudo docker exec -it db bin/bash
+
+#enter mysql
+## source : https://towardsdatascience.com/connect-to-mysql-running-in-docker-container-from-a-local-machine-6d996c574e55 
+mysql -u root -pau8
+
+#remove folder
+rm -r __name_folder
