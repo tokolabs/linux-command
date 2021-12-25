@@ -1,0 +1,16 @@
+#update system
+sudo apt update -y
+sudo apt-get update
+
+#install git
+sudo apt install git -y
+git --version
+
+#setting up ssh account
+##source: https://gist.github.com/developius/c81f021eb5c5916013dc 
+ssh-keygen -t rsa -C "mohfahrulhafidh@gmail.com"
+##content add to https://github.com/settings/keys
+sudo cat ~/.ssh/id_rsa.pub 
+##testing login
+ssh -T git@github.com 
+
