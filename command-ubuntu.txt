@@ -48,7 +48,7 @@ sudo docker network create nginx-proxy
 sudo docker-compose up --build -d
 
 #run all service
-sudo docker start nginx nginx-letsencrypt nginx-gen db pma egateway redis auth external storage user product transaction
+sudo docker start nginx nginx-letsencrypt nginx-gen db pma egateway redis auth external storage user product transaction setting
 
 # cek all container
 sudo docker ps -a
