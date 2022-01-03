@@ -33,3 +33,9 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 #Error Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post 
 sudo chmod 777 /var/run/docker.sock
+
+#install node
+sudo apt install nodejs -y
+node -v
+sudo apt install npm -y
+npm -v
