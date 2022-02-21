@@ -15,24 +15,16 @@ sudo cat ~/.ssh/id_rsa.pub
 ssh -T git@github.com 
 
 #install docker
-sudo apt-get -y install \
-apt-transport-https \
-ca-certificates \
-curl \
-software-properties-common
-
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu `lsb_release -cs` test"
 sudo apt update
 sudo apt install docker-ce -y
-
 sudo docker -v
 
 #install docker-compose
 sudo curl -L https://github.com/docker/compose/releases/download/1.23.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
-
 sudo docker-compose -v
 
 #Error Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post 
